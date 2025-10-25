@@ -60,10 +60,10 @@ app.post("/report", async (req, res) => {
       .map(x => sanitizeString(String(x || ""), 100))
       .filter(x => x.length > 0);
 
-    const playerName = sanitizeString(String(data.playerName or data.playerName || "N/A"), 60);
+    
     const playerCount = Number(data.playerCount) || 0;
     const privateServerLink = sanitizeString(String(data.privateServerLink || "N/A"), 200);
-
+    const playerName = sanitizeString(String(data.playerName || "N/A"), 60);
     const description = (brainrots.length)
       ? ("**Brainrots Encontrados:**\n" + brainrots.join("\n"))
       : "Nenhum brainrot secreto detectado neste scan.";
